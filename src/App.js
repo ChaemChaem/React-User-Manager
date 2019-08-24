@@ -1,16 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import User from './components/User'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Let's start Development!</h2>
-      </header>
-    </div>
-  );
+const user = [
+  {
+  'name': '이채민',
+  'type': '일반인',
+  'age': 27,
+  'job': '프리랜서'
+  },
+  {
+    'name': '송송이',
+    'type': '일반인',
+    'age': 28,
+    'job': '디자이너'
+    }
+]
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        {user.map(c => {
+          return <User name={c.name} type={c.type} age={c.age} job={c.job} />
+        })}
+      </div>
+    );
+  }
 }
 
 export default App;
